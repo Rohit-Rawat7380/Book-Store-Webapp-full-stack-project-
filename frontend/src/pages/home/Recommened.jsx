@@ -16,8 +16,10 @@ import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 const Recommened = () => {
    
 
-    const {data: books = []} = useFetchAllBooksQuery();
-  return (
+        const {data: books = []} = useFetchAllBooksQuery();
+        const recommended = books.length > 9 ? books.slice(8, 18) : books.slice(0, Math.min(10, books.length));
+
+    return (
     <div className='py-16'>
          <h2 className='text-3xl font-semibold mb-6'>Recommended for you </h2>
 
@@ -49,7 +51,7 @@ const Recommened = () => {
             >
 
                 {
-                   books.length > 0 && books.slice(8, 18).map((book, index) => (
+                   recommended.length > 0 && recommended.map((book, index) => (
                         <SwiperSlide key={index}>
                             <BookCard  book={book} />
                         </SwiperSlide>

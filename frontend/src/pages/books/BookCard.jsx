@@ -20,11 +20,17 @@ const BookCard = ({book}) => {
             >
                 <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
                     <Link to={`/books/${book._id}`}>
-                        <img
-                            src={`${getImgUrl(book?.coverImage)}`}
-                            alt=""
-                            className="w-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
-                        />
+                        {
+                            book?.coverImage ? (
+                                <img
+                                    src={getImgUrl(book.coverImage)}
+                                    alt={book?.title || ''}
+                                    className="w-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
+                                />
+                            ) : (
+                                <div className="w-full bg-gray-100 p-2 rounded-md text-center">No Image</div>
+                            )
+                        }
                     </Link>
                 </div>
 
@@ -34,7 +40,7 @@ const BookCard = ({book}) => {
                        {book?.title}
                         </h3>
                     </Link>
-                    <p className="text-gray-600 mb-5">{book?.description.length > 80 ? `${book.description.slice(0, 80)}...` : book?.description}</p>
+                    <p className="text-gray-600 mb-5">{book?.description?.length > 80 ? `${book.description.slice(0, 80)}...` : book?.description}</p>
                     <p className="font-medium mb-5">
                         ${book?.newPrice} <span className="line-through font-normal ml-2">$ {book?.oldPrice}</span>
                     </p>

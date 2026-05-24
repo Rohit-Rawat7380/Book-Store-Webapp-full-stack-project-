@@ -33,7 +33,7 @@ const SingleBook = () => {
                 </div>
 
                 <div className='mb-5'>
-                    <p className="text-gray-700 mb-2"><strong>Author:</strong> {book.author || 'admin'}</p>
+                    <p className="text-gray-700 mb-2"><strong>Author:</strong> {book.author || 'Rohit Rawat'}</p>
                     <p className="text-gray-700 mb-4">
                         <strong>Published:</strong> {new Date(book?.createdAt).toLocaleDateString()}
                     </p>

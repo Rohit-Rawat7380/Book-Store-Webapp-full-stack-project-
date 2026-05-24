@@ -4,10 +4,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start:dev": "nodemon index.js",
+    "seed": "node seeder.js"
   },
   "keywords": [],
-  "author": "mamun",
+  "author": "Rohit Rawat",
   "license": "ISC",
   "description": "",
   "dependencies": {
